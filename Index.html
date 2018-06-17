@@ -26,16 +26,28 @@
 
                 var c1;
                 if (!rowNum[i].hasOwnProperty('Symbol')) {
-                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
+                    c1 = createCard("img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
                     c1.style.visibility = 'hidden';
                 }
 
                 else if(rowNum[i].Symbol == '') {
-                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
+                    c1 = createCard("img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 else {
-                    c1 = createCard("j1-img-div-col1", rowNum[i].Symbol, rowNum[i].Name);
+                    var divColour;
+                    switch (rowNum[i].Type) {
+                        case 'Metalloid': divColour = 'img-div-col1'; break;
+                        case 'Alkali Metal': divColour = 'img-div-col2'; break;
+                        case 'Alkaline Earth': divColour = 'img-div-col3'; break;
+                        case 'Transition Metal': divColour = 'img-div-col4'; break;
+                        case 'Basic Metal': divColour = 'img-div-col5'; break;
+                        case 'Non-metal': divColour = 'img-div-col6'; break;
+                        case 'Halogen': divColour = 'img-div-col7'; break;
+                        case 'Noble Gas': divColour = 'img-div-col8'; break;
+                        default: divColour = 'img-div-col9'; break;
+                    }
+                    c1 = createCard(divColour, rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 container.appendChild(c1);

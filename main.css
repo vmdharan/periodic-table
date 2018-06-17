@@ -27,19 +27,43 @@
     text-align: center;
 }
 
-.j1-img-div-col0 {
+.img-div-col0 {
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
 }
 
-.j1-img-div-col1 {
-    background: linear-gradient(90deg, rgb(77, 164, 199), rgb(167, 248, 192));
+.img-div-col1 {
+    background: linear-gradient(90deg, rgb(77, 164, 199), rgb(167, 245, 248));
 }
 
-.j1-img-div-col2 {
-    background: linear-gradient(90deg, rgb(199, 101, 77), rgb(236, 248, 167));
+.img-div-col2 {
+    background: linear-gradient(90deg, rgb(218, 59, 47), rgb(241, 143, 126));
 }
 
-.j1-img-div-col3 {
+.img-div-col3 {
+    background: linear-gradient(90deg, rgb(241, 167, 97), rgb(228, 205, 163));
+}
+
+.img-div-col4 {
+    background: linear-gradient(90deg, rgb(221, 219, 82), rgb(236, 248, 167));
+}
+
+.img-div-col5 {
+    background: linear-gradient(90deg, rgb(116, 199, 77), rgb(167, 248, 191));
+}
+
+.img-div-col6 {
+    background: linear-gradient(90deg, rgb(90, 106, 180), rgb(120, 157, 187));
+}
+
+.img-div-col7 {
+    background: linear-gradient(90deg, rgb(143, 81, 201), rgb(218, 167, 248));
+}
+
+.img-div-col8 {
+    background: linear-gradient(90deg, rgb(82, 96, 126), rgb(151, 158, 165));
+}
+
+.img-div-col9 {
     background: linear-gradient(90deg, rgb(189, 124, 219), rgb(88, 91, 233));
 }
 
