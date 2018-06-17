@@ -26,16 +26,16 @@
 
                 var c1;
                 if (!rowNum[i].hasOwnProperty('Symbol')) {
-                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol);
+                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
                     c1.style.visibility = 'hidden';
                 }
 
                 else if(rowNum[i].Symbol == '') {
-                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol);
+                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 else {
-                    c1 = createCard("j1-img-div-col1", rowNum[i].Symbol);
+                    c1 = createCard("j1-img-div-col1", rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 container.appendChild(c1);

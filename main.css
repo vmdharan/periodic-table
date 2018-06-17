@@ -1,14 +1,13 @@
 .j1-container {
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
 }
 
 .j1-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20);
     transition: 0.3s;
-    width: 60px;
-    height: 80px;
+    width: 140px;
+    height: 90px;
     margin: 4px;
     border-radius: 8px;
 }
@@ -22,6 +21,9 @@
     height: 70%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    font-size: 32px;
+    font: bold;
+    text-align: center;
 }
 
 .j1-img-div-col0 {
@@ -45,4 +47,6 @@
 .j1-card-text {
     padding: 4px 8px;
     text-align: center;
+    text-overflow: clip;
+    font-size: 10px;
 }

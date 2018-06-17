@@ -1,37 +1,37 @@
 var row1 = [
-    { Symbol: 'H', Name: '' }, 
+    { Symbol: 'H', Name: 'Hydrogen' }, 
     {}, {}, {}, {}, {}, {}, {}, {},
     {}, {}, {}, {}, {}, {}, {}, {}, 
-    { Symbol: 'He', Name: '' }
+    { Symbol: 'He', Name: 'Helium' }
 ];
 
 var row2 = [
-    { Symbol: 'Li', Name: '' },
-    { Symbol: 'Be', Name: '' },
+    { Symbol: 'Li', Name: 'Lithium' },
+    { Symbol: 'Be', Name: 'Beryllium' },
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, 
-    { Symbol: 'B', Name: '' },
-    { Symbol: 'C', Name: '' },
-    { Symbol: 'N', Name: '' },
-    { Symbol: 'O', Name: '' },
-    { Symbol: 'F', Name: '' },
-    { Symbol: 'Ne', Name: '' }
+    { Symbol: 'B', Name: 'Boron' },
+    { Symbol: 'C', Name: 'Carbon' },
+    { Symbol: 'N', Name: 'Nitrogen' },
+    { Symbol: 'O', Name: 'Oxygen' },
+    { Symbol: 'F', Name: 'Fluorine' },
+    { Symbol: 'Ne', Name: 'Neon' }
 ];
 
 var row3 = [
-    { Symbol: 'Na', Name: '' },
-    { Symbol: 'Mg', Name: '' },
+    { Symbol: 'Na', Name: 'Sodium' },
+    { Symbol: 'Mg', Name: 'Magnesium' },
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, 
-    { Symbol: 'Al', Name: '' },
-    { Symbol: 'Si', Name: '' },
-    { Symbol: 'P', Name: '' },
-    { Symbol: 'S', Name: '' },
-    { Symbol: 'Cl', Name: '' },
-    { Symbol: 'Ar', Name: '' }
+    { Symbol: 'Al', Name: 'Aluminium' },
+    { Symbol: 'Si', Name: 'Silicon' },
+    { Symbol: 'P', Name: 'Phosphorus' },
+    { Symbol: 'S', Name: 'Sulphur' },
+    { Symbol: 'Cl', Name: 'Chlorine' },
+    { Symbol: 'Ar', Name: 'Argon' }
 ];
 
 var row4 = [
-    { Symbol: 'K', Name: '' },
-    { Symbol: 'Ca', Name: '' },
+    { Symbol: 'K', Name: 'Potassium' },
+    { Symbol: 'Ca', Name: 'Calcium' },
     { Symbol: 'Sc', Name: '' },
     { Symbol: 'Ti', Name: '' },
     { Symbol: 'V', Name: '' },
@@ -115,7 +115,7 @@ var row7 = [
 
 
 
-function createCard(cardImg, cardText) {
+function createCard(cardImg, elemSymbol, elemName) {
     var card = document.createElement('div');
 
     var img = document.createElement('div');
@@ -124,9 +124,10 @@ function createCard(cardImg, cardText) {
     card.classList.add("j1-card");
     img.classList.add("j1-img-div");
     img.classList.add(cardImg);
+    img.textContent = elemSymbol;
 
     txt.classList.add("j1-card-text");
-    txt.textContent = cardText;
+    txt.textContent = elemName;
 
     card.appendChild(img);
     card.appendChild(txt);
