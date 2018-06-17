@@ -12,26 +12,26 @@
 <body>
     <script>
         var container = document.createElement('div');
-        container.classList.add("j1-container");
+        container.classList.add("elem-container");
         document.body.appendChild(container);
 
         var n = 18;
 
         function doRow(rowNum) {
             var container = document.createElement('div');
-            container.classList.add("j1-container");
+            container.classList.add("elem-container");
             document.body.appendChild(container);
             for (var i = 0; i < n; i++) {
                 var col = i % 3 + 1;
 
                 var c1;
                 if (!rowNum[i].hasOwnProperty('Symbol')) {
-                    c1 = createCard("img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
+                    c1 = createCard("img-div-col0", rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
                     c1.style.visibility = 'hidden';
                 }
 
                 else if(rowNum[i].Symbol == '') {
-                    c1 = createCard("img-div-col0", rowNum[i].Symbol, rowNum[i].Name);
+                    c1 = createCard("img-div-col0", rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 else {
@@ -47,7 +47,7 @@
                         case 'Noble Gas': divColour = 'img-div-col8'; break;
                         default: divColour = 'img-div-col9'; break;
                     }
-                    c1 = createCard(divColour, rowNum[i].Symbol, rowNum[i].Name);
+                    c1 = createCard(divColour, rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
                 }
 
                 container.appendChild(c1);
