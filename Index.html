@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Periodic Table of Elements</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <script>
+        var container = document.createElement('div');
+        container.classList.add("j1-container");
+        document.body.appendChild(container);
+
+        var n = 18;
+
+        function doRow(rowNum) {
+            var container = document.createElement('div');
+            container.classList.add("j1-container");
+            document.body.appendChild(container);
+            for (var i = 0; i < n; i++) {
+                var col = i % 3 + 1;
+
+                var c1;
+                if (!rowNum[i].hasOwnProperty('Symbol')) {
+                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol);
+                    c1.style.visibility = 'hidden';
+                }
+
+                else if(rowNum[i].Symbol == '') {
+                    c1 = createCard("j1-img-div-col0", rowNum[i].Symbol);
+                }
+
+                else {
+                    c1 = createCard("j1-img-div-col1", rowNum[i].Symbol);
+                }
+
+                container.appendChild(c1);
+            }
+        }
+
+        doRow(row1);
+        doRow(row2);
+        doRow(row3);
+        doRow(row4);
+        doRow(row5);
+        doRow(row6);
+        doRow(row7);
+
+    </script>
+</body>
+
+</html>
