@@ -114,6 +114,41 @@ var row7 = [
     { Number: '118', Symbol: 'Og', Name: 'Oganesson', Type: 'Noble Gas' }
 ];
 
+var row_Lanthanide = [
+    { Number: '57', Symbol: 'La', Name: 'Lanthanum', Type: 'Lanthanide' },
+    { Number: '58', Symbol: 'Ce', Name: 'Cerium', Type: 'Lanthanide' },
+    { Number: '59', Symbol: 'Pr', Name: 'Praseodymium', Type: 'Lanthanide' },
+    { Number: '60', Symbol: 'Nd', Name: 'Neodymium', Type: 'Lanthanide' },
+    { Number: '61', Symbol: 'Pm', Name: 'Promethium', Type: 'Lanthanide' },
+    { Number: '62', Symbol: 'Sm', Name: 'Samarium', Type: 'Lanthanide' },
+    { Number: '63', Symbol: 'Eu', Name: 'Europium', Type: 'Lanthanide' },
+    { Number: '64', Symbol: 'Gd', Name: 'Gadolinium', Type: 'Lanthanide' },
+    { Number: '65', Symbol: 'Tb', Name: 'Terbium', Type: 'Lanthanide' },
+    { Number: '66', Symbol: 'Dy', Name: 'Dysprosium', Type: 'Lanthanide' },
+    { Number: '67', Symbol: 'Ho', Name: 'Holmium', Type: 'Lanthanide' },
+    { Number: '68', Symbol: 'Er', Name: 'Erbium', Type: 'Lanthanide' },
+    { Number: '69', Symbol: 'Tm', Name: 'Thulium', Type: 'Lanthanide' },
+    { Number: '70', Symbol: 'Yb', Name: 'Ytterbium', Type: 'Lanthanide' },
+    { Number: '71', Symbol: 'Lu', Name: 'Lutetium', Type: 'Lanthanide' }
+];
+
+var row_Actinide = [
+    { Number: '89', Symbol: 'Ac', Name: 'Actinium', Type: 'Actinide' },
+    { Number: '90', Symbol: 'Th', Name: 'Thorium', Type: 'Actinide' },
+    { Number: '91', Symbol: 'Pa', Name: 'Protactinium', Type: 'Actinide' },
+    { Number: '92', Symbol: 'U', Name: 'Uranium', Type: 'Actinide' },
+    { Number: '93', Symbol: 'Np', Name: 'Neptunium', Type: 'Actinide' },
+    { Number: '94', Symbol: 'Pu', Name: 'Plutonium', Type: 'Actinide' },
+    { Number: '95', Symbol: 'Am', Name: 'Americium', Type: 'Actinide' },
+    { Number: '96', Symbol: 'Cm', Name: 'Curium', Type: 'Actinide' },
+    { Number: '97', Symbol: 'Bk', Name: 'Berkelium', Type: 'Actinide' },
+    { Number: '98', Symbol: 'Cf', Name: 'Californium', Type: 'Actinide' },
+    { Number: '99', Symbol: 'Es', Name: 'Einsteinium', Type: 'Actinide' },
+    { Number: '100', Symbol: 'Fm', Name: 'Fermium', Type: 'Actinide' },
+    { Number: '101', Symbol: 'Md', Name: 'Mendelevium', Type: 'Actinide' },
+    { Number: '102', Symbol: 'No', Name: 'Nobelium', Type: 'Actinide' },
+    { Number: '103', Symbol: 'Lr', Name: 'Lawrencium', Type: 'Actinide' }
+];
 
 
 function createCard(cardImg, elemNumber, elemSymbol, elemName) {
@@ -142,6 +177,95 @@ function createCard(cardImg, elemNumber, elemSymbol, elemName) {
     card.appendChild(footer);
 
     return card;
+}
+
+function createPeriodicTable() {
+    var container = document.createElement('div');
+    container.classList.add("elem-container");
+    document.body.appendChild(container);
+
+
+
+    doRow(row1);
+    doRow(row2);
+    doRow(row3);
+    doRow(row4);
+    doRow(row5);
+    doRow(row6);
+    doRow(row7);
+
+    doRow_LanthanideActinide(row_Lanthanide, "Lanthanide");
+    doRow_LanthanideActinide(row_Actinide, "Actinide");
+}
+
+// Helper function to create each row of the Periodic table.
+function doRow(rowNum) {
+    var n = 18;     // Number of columns.
+
+    var container = document.createElement('div');
+    container.classList.add("elem-container");
+    document.body.appendChild(container);
+
+    for (var i = 0; i < n; i++) {
+        var col = i % 3 + 1;
+
+        var c1;
+        if (!rowNum[i].hasOwnProperty('Symbol')) {
+            c1 = createCard("img-div-col0", rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
+            c1.style.visibility = 'hidden';
+        }
+
+        else if (rowNum[i].Symbol == '') {
+            c1 = createCard("img-div-col0", rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
+        }
+
+        else {
+            var divColour;
+            switch (rowNum[i].Type) {
+                case 'Metalloid': divColour = 'img-div-col1'; break;
+                case 'Alkali Metal': divColour = 'img-div-col2'; break;
+                case 'Alkaline Earth': divColour = 'img-div-col3'; break;
+                case 'Transition Metal': divColour = 'img-div-col4'; break;
+                case 'Basic Metal': divColour = 'img-div-col5'; break;
+                case 'Non-metal': divColour = 'img-div-col6'; break;
+                case 'Halogen': divColour = 'img-div-col7'; break;
+                case 'Noble Gas': divColour = 'img-div-col8'; break;
+                default: divColour = 'img-div-col9'; break;
+            }
+            c1 = createCard(divColour, rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
+        }
+
+        container.appendChild(c1);
+    }
+}
+
+// Helper function to display the Lanthanide and Actinide series of elements.
+function doRow_LanthanideActinide(rowNum) {
+    var n = 15;     // Number of columns.
+
+    var container = document.createElement('div');
+    container.classList.add("elem-container");
+    document.body.appendChild(container);
+
+    var typeName = rowNum[0].Type;
+    var divTypeName = document.createElement('div');
+    divTypeName.textContent = typeName + " Series";
+    divTypeName.classList.add("elem-container-La-Ac");
+    divTypeName.classList.add("title-La-Ac");
+    container.appendChild(divTypeName);
+
+    for (var i = 0; i < n; i++) {
+        var c1;
+        var divColour;
+        switch (rowNum[i].Type) {
+            case 'Lanthanide': divColour = 'img-div-col9'; break;
+            case 'Actinide': divColour = 'img-div-col10'; break;
+            default: divColour = 'img-div-col9'; break;
+        }
+        c1 = createCard(divColour, rowNum[i].Number, rowNum[i].Symbol, rowNum[i].Name);
+
+        container.appendChild(c1);
+    }
 }
 
 function createLegendBox() {
