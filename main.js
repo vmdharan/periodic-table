@@ -1,15 +1,15 @@
 
 var row1 = [
-    { Number: '1', Symbol: 'H', Name: 'Hydrogen', Type: 'Non-metal' }, 
+    { Number: '1', Symbol: 'H', Name: 'Hydrogen', Type: 'Non-metal' },
     {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}, {}, {}, {}, 
+    {}, {}, {}, {}, {}, {}, {}, {},
     { Number: '2', Symbol: 'He', Name: 'Helium', Type: 'Noble Gas' }
 ];
 
 var row2 = [
     { Number: '3', Symbol: 'Li', Name: 'Lithium', Type: 'Alkali Metal' },
     { Number: '4', Symbol: 'Be', Name: 'Beryllium', Type: 'Alkaline Earth' },
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, 
+    {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     { Number: '5', Symbol: 'B', Name: 'Boron', Type: 'Metalloid' },
     { Number: '6', Symbol: 'C', Name: 'Carbon', Type: 'Non-metal' },
     { Number: '7', Symbol: 'N', Name: 'Nitrogen', Type: 'Non-metal' },
@@ -21,7 +21,7 @@ var row2 = [
 var row3 = [
     { Number: '11', Symbol: 'Na', Name: 'Sodium', Type: 'Alkali Metal' },
     { Number: '12', Symbol: 'Mg', Name: 'Magnesium', Type: 'Alkaline Earth' },
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, 
+    {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     { Number: '13', Symbol: 'Al', Name: 'Aluminium', Type: 'Basic Metal' },
     { Number: '14', Symbol: 'Si', Name: 'Silicon', Type: 'Metalloid' },
     { Number: '15', Symbol: 'P', Name: 'Phosphorus', Type: 'Non-metal' },
@@ -123,14 +123,17 @@ function createCard(cardImg, elemNumber, elemSymbol, elemName) {
     var img = document.createElement('div');
     var footer = document.createElement('div');
 
+    // Create a header with the element number.
     header.classList.add("elem-card-text-top");
     header.textContent = elemNumber;
 
+    // Display the element symbol.
     card.classList.add("elem-card");
     img.classList.add("elem-img-div");
     img.classList.add(cardImg);
     img.textContent = elemSymbol;
 
+    // Create a footer with the element name.
     footer.classList.add("elem-card-text-bottom");
     footer.textContent = elemName;
 
@@ -139,4 +142,43 @@ function createCard(cardImg, elemNumber, elemSymbol, elemName) {
     card.appendChild(footer);
 
     return card;
+}
+
+function createLegendBox() {
+    var legendBox = document.createElement('div');
+    legendBox.id = "legend";
+    legendBox.classList.add("legend-box");
+    document.body.appendChild(legendBox);
+
+    createLegendItem("Metalloid", "img-div-col1");
+    createLegendItem("Alkali Metal", "img-div-col2");
+    createLegendItem("Alkaline Earth", "img-div-col3");
+    createLegendItem("Transition Metal", "img-div-col4");
+    createLegendItem("Basic Metal", "img-div-col5");
+    createLegendItem("Non-metal", "img-div-col6");
+    createLegendItem("Halogen", "img-div-col7");
+    createLegendItem("Noble Gas", "img-div-col8");
+}
+
+function createLegendItem(elemType, itemClass) {
+    // Create the container for the colour and name.
+    var legendItem = document.createElement('div');
+    legendItem.classList.add("legend-item");
+
+    // Legend colour
+    var legendItemColour = document.createElement('div');
+    legendItemColour.classList.add("legend-item-col");
+    legendItemColour.classList.add(itemClass);
+
+    // Legend name
+    var legendItemName = document.createElement('div');
+    legendItemName.textContent = elemType;
+
+    // Add the colour and name to the container div.
+    legendItem.appendChild(legendItemColour);
+    legendItem.appendChild(legendItemName);
+
+    // Add the new item to the Legend box.
+    var legendBox = document.getElementById('legend');
+    legendBox.appendChild(legendItem);
 }
